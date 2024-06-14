@@ -1,0 +1,9 @@
+python inference.py --config configs/v3/kitti_raw.txt --ckpt_path ckpts/kitti_scv3/kitti.ckpt  //outdoor 1226*370
+python inference.py --config configs/v3/ddad.txt --ckpt_path ckpts/ddad_scv3/ddad.ckpt //outdoor  1936*1216
+python inference.py --config configs/v3/bonn.txt --ckpt_path ckpts/bonn_scv3/bonn.ckpt // indoor 
+python inference.py --config configs/v3/nyu.txt --ckpt_path ckpts/nyu_scv3/nyu.ckpt // indoor   
+python inference.py --config configs/v3/tum.txt --ckpt_path ckpts/tum_scv3/tum.ckpt // indoor     
+rosrun image_transport republish compressed in:=/stereo/vehicle_frame_left/image_raw raw out:=/stereo/frame_left/image_raw
+rosrun image_transport republish compressed in:=/stereo/frame_left/image_raw raw out:=/stereo/frame_left/image_raw
+
+rosrun image_transport republish compressed in:=/cam2/cam2_raw raw out:=/cam2/cam2_raw

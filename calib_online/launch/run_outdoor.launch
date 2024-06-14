@@ -1,0 +1,19 @@
+<launch>
+    <rosparam command="load" file="$(find calib_online)/config/calib_outdoor_kitti.yaml" />
+    <node 
+        pkg="calib_online"
+        type="calib_online_node"
+        name="calib_online_node"
+        output="screen"
+    />
+    <arg name="rviz" default="false" />
+    <group if="$(arg rviz)">
+        <node 
+            pkg="rviz"
+            type="rviz"
+            name="rviz"
+            args="-d $(find calib_online)/rviz_cfg/calib.rviz"
+        />
+	</group>
+
+</launch>
